@@ -3,12 +3,11 @@ body {
     /*margin:0 auto;*/
     margin-left: 5%;
     margin-right: 10%;
-
+    color: white;
 }
-
-.ref {
-	text-decoration: none
-}
+strike, .ref {
+    text-decoration: none;
+}    
 a {
 	color: white;
 }
@@ -23,6 +22,8 @@ input.hall-check {
 }
 button, select {
   margin: 1ex;
+  /*color: #3D1108;*/
+  background-color: whitesmoke;
 }
 .hall {
     padding-top: 1ex;
