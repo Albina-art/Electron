@@ -1,0 +1,4 @@
+.halls-wrapper
+  - @halls.forEach (hall) ->
+    %a.ref{'href': "#{hall.url}"}
+      #{hall.name}
