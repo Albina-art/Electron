@@ -4,3 +4,18 @@
 a {
 	color: black;
 }
+body {
+	background-color: ivory;
+	margin: 50px 100px 100px 100px;
+	    /*margin: 50px auto;*/
+}
+#app {
+	width: 360px;
+	height: 680px;
+    background: url(../img/fone.jpg);
+}
+.titl {
+/*background: white;*/
+	border: 3px;
+	margin-left: 5px;
+}
