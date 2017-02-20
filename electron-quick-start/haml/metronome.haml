@@ -1,0 +1,6 @@
+.audios.hidden
+  - @aids.forEach (aid) ->
+    %audio{'id' : aid, 'src': 'audio/1.mp3'}
+%label{'for': "temp"}
+  Temp
+%input#temp{'type': 'range', 'name': 'temp', 'min': "#{@min}", 'max': "#{@max}"}

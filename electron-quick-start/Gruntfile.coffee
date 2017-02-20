@@ -1,6 +1,13 @@
 module.exports = (grunt) ->
   grunt.initConfig
     pkg: grunt.file.readJSON('package.json')
+    babel:
+      options:
+        sourceMap: true
+        presets: ['es2015']
+      dist:
+        files:
+          'app/js/app.js': 'temp/es/app.js'
     haml:
       templates:
         options:
@@ -14,7 +21,7 @@ module.exports = (grunt) ->
         separator: ';'
       dev:
         src: ["temp/templates.js", 'vendor/*.js', 'js/declare.js', 'js/api.js', 'js/controllers/*.js', 'js/init.js']
-        dest: 'app/js/app.js'
+        dest: 'temp/es/app.js'
     watch:
       haml:
         files: ['haml/[^~]*.haml'],
@@ -27,14 +34,20 @@ module.exports = (grunt) ->
         tasks: ['concat:dev'],
         options:
           atBegin: true
+      babel:
+        files: 'temp/es/app/js'
+        tasks: 'babel'
+        options:
+          atBegin: true
     concurrent:
       options:
         limit: 20
         logConcurrentOutput: true
       cwatch: [
         # 'watch:css',
-        'watch:haml',
-        'watch:concat',
+        'watch:haml'
+        'watch:concat'
+        'watch:babel'
       ]
 
 
@@ -47,6 +60,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-ng-annotate'
   grunt.loadNpmTasks 'grunt-haml'
   grunt.loadNpmTasks 'grunt-concurrent'
+  grunt.loadNpmTasks 'grunt-babel'
 
 
   # Default task(s).
